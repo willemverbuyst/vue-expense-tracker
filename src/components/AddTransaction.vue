@@ -15,9 +15,14 @@ function onSubmit() {
     return;
   }
 
+  if (isNaN(amount.value)) {
+    toast.error("Amount must be a number");
+    return;
+  }
+
   const transactionData = {
     text: text.value,
-    amount: parseFloat(amount.value),
+    amount: Number(parseFloat(amount.value).toFixed(2)),
   };
 
   emit("transactionSubmitted", transactionData);
