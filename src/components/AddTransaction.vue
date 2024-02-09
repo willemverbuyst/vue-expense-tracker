@@ -32,20 +32,49 @@ function onSubmit() {
   <form id="form" @submit.prevent="onSubmit">
     <div class="form-control">
       <label for="text">Text</label>
-      <input v-model="text" type="text" id="text" placeholder="Enter text..." />
+      <input v-model="text" type="text" placeholder="Enter text..." />
     </div>
     <div class="form-control">
       <label for="amount"
         >Amount <br />
         (negative - expense, positive - income)</label
       >
-      <input
-        v-model="amount"
-        type="text"
-        id="amount"
-        placeholder="Enter amount..."
-      />
+      <input v-model="amount" type="text" placeholder="Enter amount..." />
     </div>
     <button class="btn">Add transaction</button>
   </form>
 </template>
+
+<style>
+label {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #9c88ff;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn:focus {
+  outline: 0;
+}
+</style>

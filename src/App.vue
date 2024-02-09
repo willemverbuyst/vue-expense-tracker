@@ -73,3 +73,10 @@ function saveToLocalStorage() {
     <AddTransaction @transaction-submitted="handleTransactionSubmitted" />
   </div>
 </template>
+
+<style>
+.container {
+  margin: 30px auto;
+  width: 400px;
+}
+</style>
