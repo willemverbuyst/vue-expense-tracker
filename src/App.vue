@@ -59,6 +59,11 @@ function handleTransactionDeleted(id) {
 function saveToLocalStorage() {
   localStorage.setItem("transactions", JSON.stringify(transactions.value));
 }
+
+function handleTransactionsCleared() {
+  transactions.value = [];
+  saveToLocalStorage();
+}
 </script>
 
 <template>
@@ -68,6 +73,7 @@ function saveToLocalStorage() {
     <IncomeExpenses :income="+income" :expenses="+expenses" />
     <TransactionList
       @transaction-deleted="handleTransactionDeleted"
+      @transactions-cleared="handleTransactionsCleared"
       :transactions="transactions"
     />
     <AddTransaction @transaction-submitted="handleTransactionSubmitted" />

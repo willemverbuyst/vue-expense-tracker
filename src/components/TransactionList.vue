@@ -5,10 +5,14 @@ const props = defineProps({
     required: true,
   },
 });
-const emit = defineEmits(["transactionDeleted"]);
+const emit = defineEmits(["transactionDeleted", "transactionsCleared"]);
 
 function deleteTransaction(id) {
   emit("transactionDeleted", id);
+}
+
+function clearTransactions() {
+  emit("transactionsCleared");
 }
 </script>
 
@@ -26,9 +30,12 @@ function deleteTransaction(id) {
       </button>
     </li>
   </ul>
+  <button v-if="transactions.length" @click="clearTransactions" class="btn">
+    Clear list
+  </button>
 </template>
 
-<style>
+<style scoped>
 .list {
   list-style-type: none;
   padding: 0;
@@ -76,5 +83,18 @@ function deleteTransaction(id) {
 
 .delete-btn:focus {
   outline: 0;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #65e4f5;
+  box-shadow: var(--box-shadow);
+  color: #000;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
 }
 </style>

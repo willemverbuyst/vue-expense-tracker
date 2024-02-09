@@ -50,7 +50,7 @@ function onSubmit() {
   </form>
 </template>
 
-<style>
+<style scoped>
 label {
   display: inline-block;
   margin: 10px 0;
